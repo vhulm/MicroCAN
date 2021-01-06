@@ -5,6 +5,7 @@
 #include "types.h"
 #include "can_drv_conf.h"
 #include "can_drv.h"
+#include "can_app.h"
 
 /*******************************************************************************
 **                      Private Macro Definitions                             **
@@ -148,7 +149,7 @@ void can_drv_task(void)
 				}
 				else
 				{
-					//can_app_msg_process(instance, &msg);
+					can_app_msg_process(instance, &msg);
 				}
 			}
 			else
