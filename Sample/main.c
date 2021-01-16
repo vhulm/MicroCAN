@@ -6,6 +6,7 @@
 #include "m_can_impl.h"
 #include "m_can.h"
 #include "can_app.h"
+#include "Nm.h"
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     while (1)
     {
         can_drv_task();
+        CanNm_MainFunction();
         can_app_task();
 
         usleep(1000 * 10);

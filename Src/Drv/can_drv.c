@@ -5,6 +5,7 @@
 #include "types.h"
 #include "can_drv_conf.h"
 #include "can_drv.h"
+#include "Nm.h"
 #include "can_app.h"
 
 /*******************************************************************************
@@ -141,7 +142,7 @@ void can_drv_task(void)
 			{
 				if (CAN_DRV_IS_NM_MSG(msg.msg_id))
 				{
-					//can_nm_msg_process(instance, &msg);
+					CanNm_RxIndication((NM_PDU *)msg.data);
 				}
 				else if (CAN_DRV_IS_TP_MSG(msg.msg_id))
 				{
