@@ -29,10 +29,10 @@ def generate_c_source():
 
     header, source, *_ = generate(db, database_name, filename_h, filename_c, "no_use_filename_c", bit_fields=True)
 
-    with open(filename_h, 'w') as fd:
+    with open(filename_h, 'wt', encoding='utf-8') as fd:
         fd.write(header)
 
-    with open(filename_c, 'w') as fd:
+    with open(filename_c, 'wt', encoding='utf-8') as fd:
         fd.write(source)
 
     print('Successfully generated {} and {}.'.format(filename_h, filename_c))
@@ -73,7 +73,7 @@ def generate_app_code():
 
     for temp_name in ["il.h", "il.c", "impl.h", "impl.c"]:
         template = env.get_template(temp_name)
-        with open("{}_{}".format(CAN_NAME.lower(), temp_name), "wt") as fd:
+        with open("{}_{}".format(CAN_NAME.lower(), temp_name), "wt", encoding='utf-8') as fd:
             fd.write(template.render(inst=inst, db=db))
 
 
